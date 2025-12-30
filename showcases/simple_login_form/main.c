@@ -19,6 +19,14 @@ void toggle_password(void* el) {
     sxui_set_flags(app.password_input, new_flags);
 }
 
+void login(void* el) {
+    (void)el;
+    char* username = (char*)sxui_get_text(app.username_input);
+    char* password = (char*)sxui_get_text(app.password_input);
+
+    printf("\nLogin button has been clicked:\nUsername: %s\nPassword: %s\n", username, password);
+}
+
 int main() {
     sxui_init("Simple Login Form", WIDTH, HEIGHT, 0xFF5A5AFF);
 
@@ -45,7 +53,7 @@ int main() {
     UIElement* login_password_toggle = sxui_button(login_form_bg, "Toggle Password", toggle_password);
     sxui_set_size(login_password_toggle, form_w - 24, 22);
 
-    UIElement* login_button = sxui_button(login_form_bg, "Login", NULL);
+    UIElement* login_button = sxui_button(login_form_bg, "Login", login);
     sxui_set_size(login_button, 150, 25);
     sxui_set_position(login_button, (form_w-150)/2, form_h-50);
 
