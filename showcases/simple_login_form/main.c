@@ -26,6 +26,8 @@ void login(void* el) {
 
     if (username && username[0] != '\0' && password && password[0] != '\0') {
         printf("\nLogin Attempt:\nUsername: %s\nPassword: %s\n", username, password);
+    } else {
+        printf("\nLogin Failed: Username or Password cannot be empty!\n");
     }
 }
 
