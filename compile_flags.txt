@@ -1,0 +1,5 @@
+-Iinclude
+-Ideps/sxui
+-Ideps/sxlist
+-I/usr/include/SDL2
+-Wall
