@@ -3,4 +3,4 @@
 	url = https://github.com/SwirX/SXList
 [submodule "deps/sxui"]
 	path = deps/sxui
-	url = https://github.com/SwirX/sxui
+	url = https://github.com/SwirX/SXUI
