@@ -24,7 +24,9 @@ void login(void* el) {
     char* username = (char*)sxui_get_text(app.username_input);
     char* password = (char*)sxui_get_text(app.password_input);
 
-    printf("\nLogin button has been clicked:\nUsername: %s\nPassword: %s\n", username, password);
+    if (username && username[0] != '\0' && password && password[0] != '\0') {
+        printf("\nLogin Attempt:\nUsername: %s\nPassword: %s\n", username, password);
+    }
 }
 
 int main() {
@@ -53,9 +55,10 @@ int main() {
     UIElement* login_password_toggle = sxui_button(login_form_bg, "Toggle Password", toggle_password);
     sxui_set_size(login_password_toggle, form_w - 24, 22);
 
-    UIElement* login_button = sxui_button(login_form_bg, "Login", login);
+    UIElement* login_button = sxui_button(login_form_bg, "Login", NULL);
     sxui_set_size(login_button, 150, 25);
     sxui_set_position(login_button, (form_w-150)/2, form_h-50);
+    sxui_on_click(login_button, login);
 
     while(!sxui_should_quit()) {
         sxui_poll_events();
