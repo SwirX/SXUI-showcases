@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "sxui.h"
 
-int WIDTH = 1200;
-int HEIGHT = 720;
+const int WINDOW_WIDTH = 1200;
+const int WINDOW_HEIGHT = 720;
 
 typedef struct AppState {
     UIElement* username_input;
@@ -31,11 +31,11 @@ void login(void* el) {
 }
 
 int main() {
-    sxui_init("Simple Login Form", WIDTH, HEIGHT, 0xFF5A5AFF);
+    sxui_init("Simple Login Form", WINDOW_WIDTH, WINDOW_HEIGHT, 0xFF5A5AFF);
 
     int form_w = 300;
     int form_h = 350;
-    UIElement* login_form_bg = sxui_frame(NULL, (WIDTH-form_w)/2, (HEIGHT-form_h)/2, form_w, form_h, UI_FLAG_NONE);
+    UIElement* login_form_bg = sxui_frame(NULL, (WINDOW_WIDTH-form_w)/2, (WINDOW_HEIGHT-form_h)/2, form_w, form_h, UI_FLAG_NONE);
 
     sxui_frame(login_form_bg, 0, 0, form_w-24, 20, UI_FLAG_NONE);
 
