@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "sxui.h"
-#include "dynamic_list.h"
 
 int WIDTH = 1200;
 int HEIGHT = 720;
