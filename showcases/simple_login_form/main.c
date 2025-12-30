@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "sxui.h"
 
-const int WINDOW_WIDTH = 1200;
-const int WINDOW_HEIGHT = 720;
+#define WINDOW_WIDTH 1200
+#define WINDOW_HEIGHT 720
 
 typedef struct AppState {
     UIElement* username_input;
