@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "sxui.h"
 
 #define WINDOW_WIDTH 1200
@@ -24,7 +25,7 @@ void login(void* el) {
     char* password = (char*)sxui_get_text(app.password_input);
 
     if (username && username[0] != '\0' && password && password[0] != '\0') {
-        printf("\nLogin Attempt:\nUsername: %s\nPassword: %s\n", username, password);
+        printf("\nLogin Attempt:\nUsername: %s\nPassword length: %zu characters\n", username, strlen(password));
     } else {
         printf("\nLogin Failed: Username or Password cannot be empty!\n");
     }
