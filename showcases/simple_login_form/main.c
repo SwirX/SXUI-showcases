@@ -5,6 +5,18 @@
 int WIDTH = 1200;
 int HEIGHT = 720;
 
+typedef struct AppState {
+    UIElement* username_input;
+    UIElement* password_input;
+} AppState;
+
+static AppState app;
+
+void toggle_password(void* el) {
+    (void)el;
+    sxui_set_flags(app.password_input, sxui_get_flags(app.password_input) ^ UI_FLAG_PASSWORD);
+}
+
 int main() {
     sxui_init("Simple Login Form", WIDTH, HEIGHT, 0xFF5A5AFF);
 
@@ -22,13 +34,13 @@ int main() {
 
     sxui_frame(login_form_bg, 0, 0, form_w-24, 50, UI_FLAG_NONE);
     
-    UIElement* login_username_input = sxui_input(login_form_bg, "Enter Your Username", 0);
-    sxui_set_size(login_username_input, form_w-24, 30);
+    app.username_input = sxui_input(login_form_bg, "Enter Your Username", 0);
+    sxui_set_size(app.username_input, form_w-24, 30);
 
-    UIElement* login_password_input = sxui_input(login_form_bg, "Enter Your Password", 1);
-    sxui_set_size(login_password_input, form_w - 24, 30);
+    app.password_input = sxui_input(login_form_bg, "Enter Your Password", 1);
+    sxui_set_size(app.password_input, form_w - 24, 30);
     
-    UIElement* login_password_toggle = sxui_button(login_form_bg, "Toggle Password", NULL);
+    UIElement* login_password_toggle = sxui_button(login_form_bg, "Toggle Password", toggle_password);
     sxui_set_size(login_password_toggle, form_w - 24, 22);
 
     UIElement* login_button = sxui_button(login_form_bg, "Login", NULL);
