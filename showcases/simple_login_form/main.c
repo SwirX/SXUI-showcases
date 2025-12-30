@@ -14,7 +14,9 @@ static AppState app;
 
 void toggle_password(void* el) {
     (void)el;
-    sxui_set_flags(app.password_input, sxui_get_flags(app.password_input) ^ UI_FLAG_PASSWORD);
+    int flags = sxui_get_flags(app.password_input);
+    int new_flags = flags ^ UI_FLAG_PASSWORD;
+    sxui_set_flags(app.password_input, new_flags);
 }
 
 int main() {
